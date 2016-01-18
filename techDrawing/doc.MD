@@ -52,14 +52,16 @@ var g = d3.select("#svg").append("g");
 - [Mozillas SVG-Element Reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#Shape_elements)
 - [SVG 1.1 Specification by W3C](https://www.w3.org/TR/SVG/expanded-toc.html)
 
-### Main Frame
-
-```xml
 
 
-```
+## Drawing Elements
+
+
 
 ### Symbols
+
+
+![alt text](img/symbols.png "Dimensions with SVG")
 
 ```xml
 <svg width="100mm" height="50mm" viewBox="0 0 420 297"
@@ -175,7 +177,7 @@ var g = d3.select("#svg").append("g");
 ### Dotted Lines
 
 
-![alt text](img/dotedLine.png "Hatching with SVG")
+![alt text](img/dottedLine.png "Hatching with SVG")
 
 
 ```xml
