@@ -1,0 +1,259 @@
+<!-- SVG User Units auf mm setzen: height und width in mm angeben und viewbox auf Blattgröße setzen (innerhalb der viewbox gelten mm)
+Achtung - keine weiteren mm Angaben innerhalb des SVG!  -->
+<svg width="297mm" height="210mm" viewBox="0 0 297 210"
+
+	stroke-width="0.1" font-size="3" fill="none"
+
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:svg="http://www.w3.org/2000/svg"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+    <!--
+
+SVG Elemente            ID                          ID der Beizeichnung (falls vorhanden) oder Attribut
+___________________________________________________________________________________________
+
+Blatthintergund:        background
+Zeichnungsrahmen:       drawingFrame
+Zeichnungskopf:         titleBlock
+Zeichnungsansicht:      view
+
+Max. Zeichnungsabmaße:
+Weite Zeichenfläche:    availableDrawingArea        Attribut: width
+Höhe Zeichenfläche:     availableDrawingArea        Attribut: height
+
+Firmenname:             companyName
+
+Bezeichnung:            marking                     markingText
+Zeichnungsnummer:       drawingNumber               drawingNumberText
+Blatt Nummer:           paperNumber                 paperNumberText
+Gesamtzahl Blätter:     paperNumberTotalNumber
+von:  (1 von 3)                                     paperNumberFromText
+
+Ersteller:              draftsman                   draftsmanText
+Prüfer:                 checker                     checkerText
+Datum:                  date                        dateText
+
+Maßstab:                scale                       scaleText
+Blattgröße:             paperSize                   paperSizeText
+Einheiten:              units                       unitsText
+
+Allgemeintoleranz:      generalTolerance            generalToleranceText
+Werkstoff:              material                    materialText
+
+Oberflächenbearbeitung: surfaceMachining
+Standard Rautiefe:      surface
+Innenkante obere Tol.:  innerEdgeUpperTolerance
+Innenkante unter Tol.:  innerEdge
+Außenante obere Tol.:   outerEdgeUpperTolerance
+Außenante unter Tol.:   outerEdge
+
+-->
+
+    <!-- Definitionsteile  -->
+    <defs>
+        <!-- Pfeilenden für Maßpfeile  -->
+        <marker id="start" refY="2" refX="0" markerHeight="8" markerWidth="4" orient="auto">
+            <path fill="black" d="M0,2 L4,4 V0 Z"></path>
+        </marker>
+        <marker id="end" refY="2" refX="4" markerHeight="8" markerWidth="4" orient="auto">
+            <path fill="black" d="M0,0 V4 L4,2 Z"></path>
+        </marker>
+
+        <!-- Im CAD verwendeter Gradient: wird weiß und transparent gesetzt; Internet Explorer/Safari machend die Fläche sonst schwarz  -->
+        <linearGradient id="gradient">
+            <stop stop-opacity="0" stop-color="#fff"></stop> <!--Internet Explorer kann keine Transparenz => Flächen werden weiß  -->
+        </linearGradient>
+
+        <!-- Größe, die für Zeichnung zur Verfügung steht  -->
+        <rect id="availableDrawingArea" width="227" height="125"></rect>
+
+        <!-- Symboler für Oberflächen und Kanten  -->
+        <path id="innerEdgeSymbol" d="m 0 -4 v 4 h 4 M 0 0 L 1.7 -1.2 M 0 0 L 1.2 -1.7 M 0 0 l 5 -5 h 6 m 0 -1 h -5 v -5" style="fill: none; stroke: black; stroke-width: 0.3;" />
+        <path id="outerEdgeSymbol" d="m -4 0 h 4 v 4 M 0 0 L 1.5 -1 M 0 0 L 1 -1.5 M 0 0 l 5 -5 h 6 m 0 -1 h -5 v -5" style="fill: none; stroke: black; stroke-width: 0.3;" />
+        <path id="surfaceSymbol" d="m 0 -2  h -4 l 2 4 l 4 -8 h 18" style="fill: none; stroke: black; stroke-width: 0.3;" />
+
+				<pattern id="thread" height="1" width="1" patternTransform="rotate(5)" patternUnits="userSpaceOnUse">
+						<path d="m 0 0 v 10" stroke="grey"></path>
+				</pattern>
+
+				<pattern id="knurl" height="2" width="2" patternTransform="rotate(90)" patternUnits="userSpaceOnUse">
+						<path d="m 0 0 v 10" stroke="grey"></path>
+				</pattern>
+
+    </defs>
+
+    <!-- Styleklassen  -->
+    <style type="text/css">
+        <![CDATA[
+
+				.thread path {
+				      fill: url("#thread");
+				}
+
+				.knurl path {
+				    fill: url("#knurl");
+				}
+
+				.innerContour.contourElement {
+				 		fill: white;
+				}
+
+        #view {
+            stroke: black;
+        }
+
+        .chainLine {
+            stroke-dasharray: 3, 2, 1, 2;
+            stroke-width: 0.4;
+            stroke: black;
+        }
+
+        .lengthDimension {
+            stroke: black;
+            stroke-width: 0.4;
+            marker-end: url(#endArrow);
+            marker-start: url(#startArrow);
+        }
+
+        .diameterDimension {
+            stroke: black;
+            stroke-width: 0.4;
+            marker-end: url(#endArrow);
+        }
+        text{
+            fill: black;
+        }
+        .lengthText {
+            text-anchor: middle;
+        }
+
+        .diameterText {
+            text-anchor: end;
+        }
+
+        .headText {}
+
+        .dataText {
+            font-weight: bold;
+        }
+
+        .elementBody {
+            fill: rgb(183, 183, 183);
+            stroke: rgb(14, 14, 14);
+        }
+
+				.innerContour .contourElement{
+					fill: white;
+				}
+
+				.selectionLine{
+					display:none;
+				}
+
+        ]]>
+    </style>
+
+    <!-- Blatthintergund; wird als erstes gezeichnet, ist die unterste Ebene  -->
+    <rect id="background" width="297" height="210" stroke="#CACACA" stroke-width="0.4" fill="white"></rect>
+
+    <!-- Positionierung des Zeichnngsrahmens mit sämtlichem Inhalt -->
+    <g transform="translate(10,20)">
+
+        <!-- Zeichnungsrahmen, wird als erstes gezeichnet, ist die unterste Ebene  -->
+        <rect id="drawingFrame" width="277" height="180" fill="none" stroke="black" stroke-width="0.2"></rect>
+
+      <!-- Zeichnungskopf  -->
+        <g transform="translate(0,150)" id="titleBlock">
+            <g>
+                <path d=" M 0 30  V 0 H 277" stroke="black" fill="none" stroke-width="0.2"></path>
+
+               <g transform="translate(12,7)scale(0.5)" stroke="black" stroke-width="0.5">
+	               <polygon fill="#FFFFFF" points="0,23.449 30.442,23.449 44.018,1.645 13.576,1.645 	"/>
+	               <circle fill="#FFFFFF" cx="22.009" cy="12.546" r="3.908"/>
+                </g>
+                <text id="companyName" text-anchor="middle" font-weight="bold" y="27" x="22">RAPIDFACTURE</text>
+            </g>
+            <g transform="translate(44,0)">
+                <line x1="0" x2="0" y1="0" y2="30" stroke="black" fill="none" stroke-width="0.2"></line>
+
+                <text id="markingText" class="headText" y="7" x="2">Bezeichnung</text>
+                <text id="marking" class="dataText" y="7" x="25">Drehteil</text>
+
+                <text id="drawingNumberText" class="headText" y="17" x="2">Nummer</text>
+                <text id="drawingNumber" class="dataText" y="17" x="25"></text>
+
+                <text id="paperNumberText" class="headText" y="27" x="2">Blatt</text>
+                <text id="paperNumber" class="dataText" y="27" x="25">1</text>
+                <text id="paperNumberFromText" class="dataText" y="27" x="28">von</text>
+                <text id="paperNumberTotalNumber" class="dataText" y="27" x="35">1</text>
+            </g>
+            <g transform="translate(120,0)">
+                <line x1="0" x2="0" y1="0" y2="30" stroke="black" fill="none" stroke-width="0.2"></line>
+
+                <text id="draftsmanText" class="headText" y="7" x="2">Erstellt </text>
+                <text id="draftsman" class="dataText" y="7" x="22"></text>
+
+                <text id="checkerText" class="headText" y="17" x="2">Genehmigt</text>
+                <text id="checker" class="dataText" y="17" x="22"></text>
+
+                <text id="dateText" class="headText" y="27" x="2">Datum</text>
+                <text id="date" class="dataText" y="27" x="22">2015</text>
+            </g>
+            <g transform="translate(183,0)">
+                <line x1="0" x2="0" y1="0" y2="30" stroke="black" fill="none" stroke-width="0.2"></line>
+
+                <text id="scaleText" class="headText" y="7" x="2">Maßstab</text>
+                <text id="scale" class="dataText" y="7" x="22">1:1</text>
+
+                <text id="paperSizeText" class="headText" y="17" x="2">Blattgröße</text>
+                <text id="paperSize" class="dataText" y="17" x="22">A4</text>
+
+                <text id="unitsText" class="headText" y="27" x="2">Einheiten</text>
+                <text id="units" class="dataText" y="27" x="22">mm</text>
+            </g>
+            <g transform="translate(215,0)">
+                <line x1="0" x2="0" y1="0" y2="30" stroke="black" fill="none" stroke-width="0.2"></line>
+
+                <text id="generalToleranceText" class="headText" y="7" x="2">Toleranz</text>
+                <text id="generalTolerance" class="dataText" y="7" x="20">DIN 7168-mittel</text>
+
+                <text id="materialText" class="headText" y="17" x="2">Werkstoff</text>
+                <text id="material" class="dataText" y="17" x="20"></text>
+            </g>
+            <g transform="translate(190,-6)">
+                <g>
+                    <use xlink:href="#surfaceSymbol"></use>
+                    <text id="surfaceMachining" class="dataText" y="-7" x="3"></text>
+                    <text id="surface" class="dataText" y="-2" x="3">Rz 3,2</text>
+                </g>
+
+                <g transform="translate(25,0)">
+                    <use xlink:href="#innerEdgeSymbol"></use>
+                    <text id="innerEdgeUpperTolerance" class="dataText" y="-12" x="7"></text>
+                    <text id="innerEdge" class="dataText" y="-8" x="7">+0,5</text>
+                </g>
+                <g transform="translate(55,0)">
+                    <use xlink:href="#outerEdgeSymbol"></use>
+                    <text id="outerEdgeUpperTolerance" class="dataText" y="-12" x="7"></text>
+                    <text id="outerEdge" class="dataText" y="-8" x="7">-0,3</text>
+                </g>
+            </g>
+
+        </g>
+
+
+
+        <!-- Gruppe für Seitenansicht: Konturelemente und Symmetrielinie  -->
+        <g transform="translate(0,60)" id="symmetryHeight">
+            <!-- Gruppe für ein Konturelemente in Seitenansicht   -->
+            <g transform="translate(15,0)">
+            <g transform="scale(1)" id="view" stroke-width="0.3" font-size="3"></g>
+            </g>
+            <!-- Symmetrielinie, oberste Ebene im SVG -->
+            <line class="chainLine" y2="0" y1="0" x2="267" x1="10"></line>
+
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "companyName": "RAPIDFACTURE",
+    "marking": "Drehteil",
+    "drawingNumber": "1",
+    "draftsman": "",
+    "checker": "",
+    "date": "",
+    "scale": "auto",
+    "paperSize": "A4",
+    "units": "mm",
+    "generalTolerance": "DIN 2768 - mittel",
+    "material": "C45",
+    "surface": "Ra 6,3",
+    "innerEdge": "+0,3 bis +0,5",
+    "outerEdge": "-0,1 bis -0,3"
+  },
+  "innerContour": [{
+    "type": "cylinder",
+    "meta": {},
+    "left": {
+      "dimension": {
+        "value": 22
+      }
+    },
+    "middle": {
+      "dimension": {
+        "value": 10,
+        "linkToElement": 0
+      }
+    },
+    "right": {
+      "dimension": {
+        "value": 22
+      }
+    }
+  }, {
+    "type": "cylinder",
+    "meta": {},
+    "left": {
+      "dimension": {
+        "value": 10
+      }
+    },
+    "middle": {
+      "dimension": {
+        "value": 2,
+        "linkToElement": 0
+      }
+    },
+    "right": {
+      "dimension": {
+        "value": 10
+      }
+    }
+  }],
+  "outerContour": [{
+    "type": "cylinder",
+    "left": {
+      "dimension": {
+        "value": 30
+      }
+    },
+    "middle": {
+      "dimension": {
+        "value": 14,
+        "linkToElement": 0
+      }
+    },
+    "right": {
+      "dimension": {
+        "value": 30
+      }
+    },
+    "meta": {}
+  }, {
+    "type": "circle",
+    "meta": {},
+    "left": {
+      "dimension": {
+        "value": 22
+      }
+    },
+    "middle": {
+      "dimension": {
+        "value": 4,
+        "linkToElement": 0
+      },
+      "radius": {
+        "value": 4,
+        "curvature": 1,
+        "x": {
+          "value": 12.966479394838265
+        },
+        "z": {
+          "value": 3.4832396974191324
+        }
+      }
+    },
+    "right": {
+      "dimension": {
+        "value": 18
+      }
+    }
+  }, {
+    "type": "cylinder",
+    "left": {
+      "dimension": {
+        "value": 18
+      }
+    },
+    "middle": {
+      "dimension": {
+        "value": 13,
+        "linkToElement": 0
+      }
+    },
+    "right": {
+      "dimension": {
+        "value": 18
+      }
+    },
+    "meta": {}
+  }, {
+    "type": "cylinder",
+    "left": {
+      "dimension": {
+        "value": 16
+      }
+    },
+    "middle": {
+      "dimension": {
+        "value": 30,
+        "linkToElement": 0
+      }
+    },
+    "right": {
+      "dimension": {
+        "value": 16
+      }
+    },
+    "meta": {}
+  }]
+}
