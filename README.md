@@ -11,18 +11,16 @@ So feel free to use it.
 ## Content
 
 
-###JSON file format for lathed Parts
+###JSON format for turned parts
 
 
 This format is used by our [Online-CAD](https://www.rapidfacture.com/cad/cad.html) and our CAM Processor.
-See [here](turningJSON/doc.MD) for the Docu of our API for turned parts.
+[See here](turningJSON/doc.MD) for the Docu.
 
 
 
-### Technical Drawings using SVG
+### Technical drawings using SVG
 
-
-Will be added soon ...
 
 [Make technical drawings using svg](techDrawing/doc.MD) and our default templates
 
@@ -30,7 +28,7 @@ Will be added soon ...
 
 
 
-### Material Data
+### Material data
 
 
 Material data we use in our CAD.

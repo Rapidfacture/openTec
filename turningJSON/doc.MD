@@ -8,7 +8,7 @@ Turned parts are stored by an array of contour elements which hold further detai
 ![alt text](img/samplePart.png "Example Part from RAPIDFACTURE CAD")
 
 
-For alive Example in Code [see here](example.json):
+[See here](example.json) for a Code example.
 
 The basic document structure consists of three parts:
 
