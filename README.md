@@ -3,8 +3,8 @@
 
 
 This is the public RAPIDFACTURE git Repository.
-The Code here is published under the [MIT license](https://en.wikipedia.org/wiki/MIT_License) and can be edited, used, or sold.
-So feel free to use it.
+As we build our Software on top of free Software technology, we want to give something back. So feel free to use this code.
+The Code is published under the [MIT license](https://en.wikipedia.org/wiki/MIT_License) and can be edited, used, or sold.
 
 
 
@@ -22,7 +22,7 @@ This format is used by our [Online-CAD](https://www.rapidfacture.com/cad/cad.htm
 ### Technical drawings using SVG
 
 
-[Make technical drawings using svg](techDrawing/doc.MD) and our default templates
+[Make technical drawings using svg](techDrawing/doc.MD) and our default templates.
 
 
 

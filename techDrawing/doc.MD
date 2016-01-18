@@ -2,7 +2,7 @@
 
 
 
-Technical drawings can be created easy from the webbrowser using SVG. We want to share some of our knowledge here with you. Content:
+Technical drawings can be created easy from the webbrowser using SVG. Content:
 * technical advantages of SVG
 * recommendation: use d3 for editing SVG
 * SVG drawing elements. Creating symbols, dimensions, dotted lines, hatching
