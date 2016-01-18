@@ -59,7 +59,7 @@ Every Contour Element has the baisc structure:
 
 ```javascript
 {
-    "meta":{},  // meta info for every contour element
+    "meta":{},
     "left":{},
     "middle":{},
     "right":{}
@@ -68,11 +68,13 @@ Every Contour Element has the baisc structure:
 
 ![alt text](img/contourElemSections.png "Sections of the contour element")
 
-"left", "middle" and "right" each hold information for one main dimension and can hold optional information about edges, faces and features.
+"left", "middle" and "right" each hold one main dimension and can hold optional information about edges, faces and features.
 
 There are three element types to represent the contour: cylinder, cone or circle. (Maybe we add another one with splines in the future)
 
-![alt text](img/ElementTypes.png "Sections of the contour element")
+![alt text](img/elementTypes.png "Sections of the contour element")
+
+
 
 ```javascript
 [{
@@ -94,7 +96,8 @@ There are three element types to represent the contour: cylinder, cone or circle
     "middle": {
         "dimension": {          // element length
             "value": 20,        // value in mm
-            "link-to-element": 0// the end of the element can also be referenced to another element; element length stays the same
+            "link-to-element": 0// the end of the element can also be referenced to another element;
+                                // element length stays the same
         },
         "face": {               // surface definition
             "surface-roughness": 30

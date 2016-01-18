@@ -1,5 +1,5 @@
 
-![alt text](img/logo.svg "RAPIDFACTURE - CNC-turned parts online")
+![alt text](img/logo.png "RAPIDFACTURE - CNC-turned parts online")
 
 # openTec
 
