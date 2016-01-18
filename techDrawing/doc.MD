@@ -2,7 +2,7 @@
 
 
 
-Technical drawings can be created easy from the Webbrowser using SVG. We want to share some of our knowledge here with you. Content:
+Technical drawings can be created easy from the webbrowser using SVG. We want to share some of our knowledge here with you. Content:
 * technical advantages of SVG
 * recommendation: use d3 for editing SVG
 * SVG drawing elements. Creating symbols, dimensions, dotted lines, hatching
@@ -19,30 +19,30 @@ Technical drawings can be created easy from the Webbrowser using SVG. We want to
 
 - SVG is scalable
 - direct export to file possible
-- SVG has a good performace good with fewer big objects and few colors (like in technical drawings)
+- SVG has a good performance good with fewer big objects and few colors (like in technical drawings)
 - development speed:
   - integrated event handling
   - style classes
   - declare symbols and use them,
   - markers on line endings, dotted lines
   - patterns
-- support:basic features are included almost in every browser; some advanced features not
+- support: basic features are included almost in every browser; some advanced features not (e.g. Compositing; but you might not need those features)
   - [https://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28Scalable_Vector_Graphics%29](https://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28Scalable_Vector_Graphics%29)
   - [http://caniuse.com/#search=svg](http://caniuse.com/#search=svg)
-
 - bad thing about SVG: no line breaks in SVG-TEXT available
 
 ### CANVAS vs SVG
 
 
-- SVG your choice for technical drawings
-- CANVAS gets slower, the more pixels are used (in a technical drawing you use big homogen faces - ideal for SVG)
+- SVG is your choice for technical drawings
+- CANVAS is not scalable
+- extra work for event handling (or use a framework)
 - CANVAS might be exported to pdf, additional library necessary
-- extra work for event handling (or use a framework, which will slow the performance of canvas down)
 - CANVAS is good for pixel images with much details and is there much faster
+- CANVAS is in general very fast (no slow DOM-operations) and performs SVG out in speed. However, it gets slower, the more pixels are used. In a technical drawing you use big homogen faces - ideal for SVG. Using Canvas Frameworks might also slow down the performance of CANVAS very much. So for technical drawings, there might not be a big performance advantage in using CANVAS.
 - [Code Examples of Canvas and SVG](https://www.safaribooksonline.com/blog/2012/04/17/using-html5-canvas-vs-svg/)
 
-  Very good comparision on [https://msdn.microsoft.com/library/gg193983%28v=vs.85%29.aspx](https://msdn.microsoft.com/library/gg193983%28v=vs.85%29.aspx)
+  Very good comparison on [https://msdn.microsoft.com/library/gg193983%28v=vs.85%29.aspx](https://msdn.microsoft.com/library/gg193983%28v=vs.85%29.aspx)
 
   ![alt text](https://i-msdn.sec.s-msft.com/dynimg/IC496493.png "CANVAS vs SVG")
 
