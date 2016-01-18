@@ -6,12 +6,13 @@ Turned parts are stored by an array of contour elements which hold further detai
 
 The basic document structure consists of three parts:
 
-    {
-        "meta": {}, // some meta info about drawing in this obj
-        "innerContour": [], // array of contour elements
-        "outerContour": [], // array of contour elements
-    }
-
+```javascript
+{
+    "meta": {}, // some meta info about drawing in this obj
+    "innerContour": [], // array of contour elements
+    "outerContour": [], // array of contour elements
+}
+```
 
 ## Meta Information
 
@@ -19,75 +20,90 @@ The basic document structure consists of three parts:
 
 The following meta information is used for the drawing:
 
-    {
-      "companyName": "RAPIDFACTURE",
-      "marking": "Test Part",
-      "drawingNumber": "1",
-      "draftsman": "",
-      "checker": "",
-      "date": "",
-      "scale": "auto",
-      "paperSize": "A4",
-      "units": "mm",
-      "generalTolerance": "DIN 2768 - mittel",
-      "material": "C45",
-      "surface": "Ra 6,3",
-      "innerEdge": "+0,3 bis +0,5",
-      "outerEdge": "-0,1 bis -0,3"
-    }
+
+```javascript
+{
+  "companyName": "RAPIDFACTURE",
+  "marking": "Test Part",
+  "drawingNumber": "1",
+  "draftsman": "",
+  "checker": "",
+  "date": "",
+  "scale": "auto",
+  "paperSize": "A4",
+  "units": "mm",
+  "generalTolerance": "DIN 2768 - mittel",
+  "material": "C45",
+  "surface": "Ra 6,3",
+  "innerEdge": "+0,3 bis +0,5",
+  "outerEdge": "-0,1 bis -0,3"
+}
+```
 
 Ideas: could also consist "size" (diameter/length), "weight".
 
-
-## Contour elements
+## Contour
 
 
 Inner and outer contour use the same structure for describing the contour.
 
-
-
 ### Example contour element
 
+Every Contour Element has the baisc structure:
+
+```javascript
+{
+    "meta":{},  // meta info for every contour element
+    "left":{},
+    "middle":{},
+    "right":{}
+}
+```
+"left", "middle" and "right" each hold information for one main dimension and can hold optional information about edges, faces and features.
+
+There are three element types to represent the contour: cylinder, cone or circle. (Maybe we add another one with splines in the future)
 
 
-    [{
-        "type": "cylinder",		// Elementtyp: Zylinder-, Konus- oder Kreiselement
+```javascript
+[{
+    "type": "cylinder",         // elementtype: cylinder, cone or circle
 
-        "meta": {			// Metadatenteil
-            "index": 0,			// Index um die Elemente anzuordnen und zur vertauschen
-            "selection": false,		// Element angewählt/selektiert
-            "version": 0,		// Versionshistorie, Elemente speichern => „Bearbeiten Rückgängig“
-            "dimension-type": 0	// Bemaßungsart bei Konus- oder Kreiselementen
-        },
-        "left": {			// Daten des linken Elementabschnitts
-            "dimension": {		// Bemaßung; hier: das erste Durchmessermaß
-                "value": 50,		// Wert in mm
-                "tolerance-pos": 0.2	// Positiver Toleranzwert in mm
-            }
-        },
-        "middle": {			// Daten des mittleren Elementabschnitts
-            "dimension": {		// Bemaßung; hier: Längenbemaßung; relative d.h. Elementlänge
-                "value": 20,		// Wert in mm
-                "link-to-element": 0	// Verknüpfung des Längenmaßes zu anderen Elementen
-            },
-            "face": {			// Oberflächendefinition; hier: Bezug auf Mantelfläche
-                "surface-roughness": 30	// Oberflächenrauheit Rz in µm
-            }
-        },
-        "right": {			// Daten des rechten Elementabschnitts
-            "dimension": {		// Bemaßung; hier: zweites Durchmessermaß
-                "value": 50,		// Wert in mm
-                "tolerance-neg": 0.2,	// Negativer Toleranzwert in mm
-                "steady": "true"		// Stetige Verknüpfung des Durchmessers mit dem Nachbarelement
-            },
-            "edge": {			// Definition der Kante rechts
-                "value": 2,		// Größe in mm
-                "type": "radius"		// Typ: Radius, Fase oder Freistich
-            },
-            "feature": {			// Bearbeitungen auf der rechten Stirnfläche des Elements
-                "groove": {}		// Nut
-            }
-        },
+    "meta": {
+        "dimension-type": 0     // cone and circle elements can have different definitions of their dimensions
     },
-    {} // next element ...
-    ]
+    "left": {
+        "dimension": {          // left diameter
+            "value": 50,        // value in mm
+            "tolerance": {      // optional tolerance object
+                "value": 0.1    // value in mm
+                "type": "+"     // tolerance type; +, -, ±, +-; letters like "H, G, h, g" for fittings
+            }
+
+        }
+    },
+    "middle": {
+        "dimension": {          // element length
+            "value": 20,        // value in mm
+            "link-to-element": 0// the end of the element can also be referenced to another element; element length stays the same
+        },
+        "face": {               // surface definition
+            "surface-roughness": 30
+        }
+    },
+    "right": {
+        "dimension": {          // right diameter dimension
+            "value": 50,        // value in mm
+        },
+        "edge": {               // edge definition
+            "value": 2,         // size in mm
+            "type": "radius"
+        },
+        "feature": {            // features
+            "groove": {},
+            "booring": {}
+        }
+    },
+},
+{} // next element ...
+]
+```
