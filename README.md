@@ -15,7 +15,7 @@ So feel free to use it.
 
 
 This format is used by our [Online-CAD](https://www.rapidfacture.com/cad/cad.html) and our CAM Processor.
-See [here](turningJSON/doc.md) for the Docu of our API for turned parts.
+See [here](turningJSON/doc.MD) for the Docu of our API for turned parts.
 
 
 
