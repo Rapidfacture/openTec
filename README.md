@@ -1,10 +1,8 @@
 
 ![alt text](img/logo.png "RAPIDFACTURE - CNC-turned parts online")
 
-# openTec
 
-
-This is the public RAPIDFACTURE git Repsoitory.
+This is the public RAPIDFACTURE git Repository.
 The Code here is published under the [MIT license](https://en.wikipedia.org/wiki/MIT_License) and can be edited, used, or sold.
 So feel free to use it.
 
@@ -23,6 +21,8 @@ See [here](turningJSON/doc.MD) for the Docu of our API for turned parts.
 
 ### Technical Drawings using SVG
 
+
+Will be added soon ...
 
 [Make technical drawings using svg](techDrawing/doc.MD) and our default templates
 
