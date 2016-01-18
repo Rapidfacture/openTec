@@ -12,8 +12,10 @@
 
 - development speed:
   - integrated event handling
-  - style
-  - elements: marker
+  - style classes
+  - declare symbols and use the,
+  - markers on line endings, dotted lines
+  - patterns
 
 - support:basic features are included almost in every browser; some advanced features not
   - [https://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28Scalable_Vector_Graphics%29](https://en.wikipedia.org/wiki/Comparison_of_layout_engines_%28Scalable_Vector_Graphics%29)
@@ -125,37 +127,82 @@ var g = d3.select("#svg").append("g");
 ![alt text](img/dimension.png "Dimensions with SVG")
 
 ```xml
-<svg width="420mm" height="297mm" viewBox="0 0 420 297"
-    stroke-width="0.1" font-size="3" fill="none"
+<svg
+    width="420mm"
+    height="297mm"
+    viewBox="0 0 420 297"
+    stroke-width="0.1"
+    font-size="3"
+    fill="none"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:svg="http://www.w3.org/2000/svg"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink" >
+    xmlns:xlink="http://www.w3.org/1999/xlink">
 
-     <defs>
-        <marker id="start" refY="2" refX="0" markerHeight="8" markerWidth="4" orient="auto">
-           <path fill="black" d="M0,2 L4,4 V0 Z"></path>
-       </marker>
-       <marker id="end" refY="2" refX="4" markerHeight="8" markerWidth="4" orient="auto">
-           <path fill="black" d="M0,0 V4 L4,2 Z"></path>
-       </marker>
+    <defs>
+        <marker orient="auto" markerWidth="4" markerHeight="8" refY="2" refX="0" id="start">
+            <path d="M0,2 L4,4 V0 Z" fill="black"></path>
+        </marker>
+        <marker orient="auto" markerWidth="4" markerHeight="8" refY="2" refX="4" id="end">
+            <path d="M0,0 V4 L4,2 Z" fill="black"></path>
+        </marker>
     </defs>
 
     <style type="text/css">
         <![CDATA[
-    .lengthDimension {
-        stroke: black;
-        stroke-width: 0.4;
-        marker-end: url(#endArrow);
-        marker-start: url(#startArrow);
-    }
-    ]]>
+
+        line {
+            stroke: black;
+            stroke-width: 0.5px;
+        }
+
+        .dimensionText {
+            fill: black;
+            marker-end: url(#endArrow);
+            text-anchor: "middle";
+        }
+
+        ]]>
     </style>
 
-    <line class="lengthDimension" y2="10" x2="40" y1="10" x1="5" marker-end="url(#end)" marker-start="url(#start)"></line>
+    <line y2="17" x2="50" y1="25" x1="50"></line>
+    <line y2="17" x2="10" y1="25" x1="10"></line>
+    <line y2="20" x2="50" y1="20" x1="10" marker-end="url(#end)" marker-start="url(#start)"></line>
+    <text class="dimensionText" x="30" y="18">20</text>
 
 </svg>
 ```
+### Dotted Lines
+
+
+![alt text](img/dotedLine.png "Hatching with SVG")
+
+
+```xml
+<svg width="200" height="200" viewPort="0 0 200 300" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+    <line stroke-dasharray="5, 5"              x1="10" y1="10" x2="190" y2="10" />
+    <line stroke-dasharray="5, 10"             x1="10" y1="30" x2="190" y2="30" />
+    <line stroke-dasharray="10, 5"             x1="10" y1="50" x2="190" y2="50" />
+    <line stroke-dasharray="5, 1"              x1="10" y1="70" x2="190" y2="70" />
+    <line stroke-dasharray="1, 5"              x1="10" y1="90" x2="190" y2="90" />
+    <line stroke-dasharray="0.9"               x1="10" y1="110" x2="190" y2="110" />
+    <line stroke-dasharray="15, 10, 5"         x1="10" y1="130" x2="190" y2="130" />
+    <line stroke-dasharray="15, 10, 5, 10"     x1="10" y1="150" x2="190" y2="150" />
+    <line stroke-dasharray="15, 10, 5, 10, 15" x1="10" y1="170" x2="190" y2="170" />
+    <line stroke-dasharray="5, 5, 1, 5"        x1="10" y1="190" x2="190" y2="190" />
+
+<style><![CDATA[
+line{
+    stroke: black;
+    stroke-width: 2;
+}
+]]></style>
+</svg>
+```
+This code is from https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray
+
+
 
 ### Hatching
 
