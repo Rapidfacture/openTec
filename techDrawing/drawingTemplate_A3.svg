@@ -77,13 +77,13 @@ Außenante unter Tol.:   outerEdge
         <path id="outerEdgeSymbol" d="m -4 0 h 4 v 4 M 0 0 L 1.5 -1 M 0 0 L 1 -1.5 M 0 0 l 5 -5 h 6 m 0 -1 h -5 v -5" style="fill: none; stroke: black; stroke-width: 0.3;" />
         <path id="surfaceSymbol" d="m 0 -2  h -4 l 2 4 l 4 -8 h 18" style="fill: none; stroke: black; stroke-width: 0.3;" />
 
-				<pattern id="thread" height="1" width="1" patternTransform="rotate(5)" patternUnits="userSpaceOnUse">
-						<path d="m 0 0 v 10" stroke="grey"></path>
-				</pattern>
+		<pattern id="thread" height="1" width="1" patternTransform="rotate(5)" patternUnits="userSpaceOnUse">
+				<path d="m 0 0 v 10" stroke="grey"></path>
+		</pattern>
 
-				<pattern id="knurl" height="2" width="2" patternTransform="rotate(90)" patternUnits="userSpaceOnUse">
-						<path d="m 0 0 v 10" stroke="grey"></path>
-				</pattern>
+		<pattern id="knurl" height="2" width="2" patternTransform="rotate(90)" patternUnits="userSpaceOnUse">
+				<path d="m 0 0 v 10" stroke="grey"></path>
+		</pattern>
 
     </defs>
 
@@ -227,7 +227,7 @@ Außenante unter Tol.:   outerEdge
                 <text id="material" class="dataText" y="17" x="20"></text>
             </g>
             <g transform="translate(-96, 17)">
-            <g>
+            	<g>
                     <use xlink:href="#surfaceSymbol"></use>
                     <text id="surfaceMachining" class="dataText" y="-7" x="3"></text>
                     <text id="surface" class="dataText" y="-2" x="3">Rz 3,2</text>
