@@ -2,7 +2,16 @@
 
 
 
-Technical drawings can be created easy from the Webbrowser using SVG. We want to share some of our knowledge here with you.
+Technical drawings can be created easy from the Webbrowser using SVG. We want to share some of our knowledge here with you. Content:
+* technical advantages of SVG
+* recommendation: use d3 for editing SVG
+* SVG drawing elements. Creating symbols, dimensions, dotted lines, hatching
+
+### Links
+- [good SVG Tutorial by jenkov](http://tutorials.jenkov.com/svg/index.html); all important things included
+- [Mozillas SVG-Element Reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#Shape_elements)
+- [SVG 1.1 Specification by W3C](https://www.w3.org/TR/SVG/expanded-toc.html)
+
 
 
 ## Why SVG
@@ -41,10 +50,11 @@ Technical drawings can be created easy from the Webbrowser using SVG. We want to
 
 
 
-## Recommendations
-### SVG framework [d3](https://d3js.org/)
-- creating and appending attributes: short code (50% shorter than pure JS), clean, readable
-- . (main reason for me)
+## SVG framework [d3](https://d3js.org/)
+
+
+
+- creating and appending attributes: short code (50% shorter than pure JS), clean, readable. (main reason for me)
 
 ```javascript
 var g = d3.select("#svg").append("g");
@@ -64,12 +74,6 @@ var g = d3.select("#svg").append("g");
 - well documented, lots of examples
 - fast
 - binding JSON Data to SVG. For easy creating diagrams from JSON. Good feature for simple diagrams; we do not use it in the RAPIDFACTURE CAD - with major requirements to the data handling, "for loops" are more efficient and easy to use.
-
-### Links
-- [good SVG Tutorial by jenkov](http://tutorials.jenkov.com/svg/index.html); all important things included
-- [Mozillas SVG-Element Reference](https://developer.mozilla.org/en-US/docs/Web/SVG/Element#Shape_elements)
-- [SVG 1.1 Specification by W3C](https://www.w3.org/TR/SVG/expanded-toc.html)
-
 
 
 ## Drawing Elements
