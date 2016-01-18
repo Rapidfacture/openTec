@@ -1,5 +1,7 @@
-# openTec
 
+![alt text](img/logo.svg "RAPIDFACTURE - CNC-turned parts online")
+
+# openTec
 
 
 This is the public RAPIDFACTURE git Repsoitory.

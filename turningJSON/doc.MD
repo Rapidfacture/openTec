@@ -4,6 +4,12 @@
 
 Turned parts are stored by an array of contour elements which hold further details (dimensions, features, etc.).
 
+
+![alt text](img/samplePart.png "Example Part from RAPIDFACTURE CAD")
+
+
+For alive Example in Code [see here](example.json):
+
 The basic document structure consists of three parts:
 
 ```javascript
@@ -59,10 +65,14 @@ Every Contour Element has the baisc structure:
     "right":{}
 }
 ```
+
+![alt text](img/contourElemSections.png "Sections of the contour element")
+
 "left", "middle" and "right" each hold information for one main dimension and can hold optional information about edges, faces and features.
 
 There are three element types to represent the contour: cylinder, cone or circle. (Maybe we add another one with splines in the future)
 
+![alt text](img/ElementTypes.png "Sections of the contour element")
 
 ```javascript
 [{
