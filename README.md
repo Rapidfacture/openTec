@@ -14,21 +14,10 @@ The Code is published under the [MIT license](https://en.wikipedia.org/wiki/MIT_
 ### JSON format for turned parts
 
 
-This format is used by our [Online-CAD](https://www.rapidfacture.com/cad/cad.html) and our CAM Processor.
+This format is used by our [Online-CAD](https://cad.rapidfacture.com) and our CAM Processor.
 [See here](turningJSON/doc.MD) for the Docu.
 
 
 
 ### Technical drawings using SVG
-
-
 [Make technical drawings using svg](techDrawing/doc.MD) and our default templates.
-
-
-
-
-
-### Material data
-
-
-Material data we use in our CAD.
