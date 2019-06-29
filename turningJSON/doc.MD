@@ -120,3 +120,127 @@ There are three element types to represent the contour: cylinder, cone or circle
 {} // next element ...
 ]
 ```
+
+## Features
+
+### Champfer / Radius
+
+```js
+{
+   "type": "cylinder",
+   "left": {
+     "dimension": {
+       "value": 30
+     },
+     "edge": { // R 1 mm radius  
+       "dimension": {
+         "value": 1
+       },
+       "type": "radius"
+     }
+   },
+   "middle": {
+     "dimension": {
+       "value": 20
+     }
+   },
+   "right": {
+     "dimension": {
+       "value": 30
+     },
+     "edge": { // 45° x 0.3 mm chamfer
+       "dimension": {
+         "value": 0.3
+       },
+       "type": "chamfer",
+       "angle": 45
+     }
+   },
+   "meta": {}
+}
+```
+
+
+
+### Surface Quality
+ToDo
+
+
+### Text
+
+```js
+   // one contour element:
+  {
+      "type": "cylinder",
+      "left": {
+          "dimension": {
+              "value": 30
+          },
+          "feature": {
+              "text": [{ // text as array; written on left face
+                  "content": "Left text"
+              }]
+          }
+      },
+      "middle": {
+          "dimension": {
+              "value": 20
+          },
+          "feature": {
+              "text": [{ // text as array; written on the cylinder face
+                  "content": "Body text"
+              }]
+          }
+      },
+      "right": {
+          "dimension": {
+              "value": 30
+          }
+          // text for right side can be placed here (like above for the left side)
+      },
+      "meta": {}
+  }
+
+```
+
+## Knurl
+```js
+{
+  "type": "cylinder",
+  "left": {
+    "dimension": {
+      "value": 30
+    }
+  },
+  "middle": {
+    "dimension": {
+      "value": 20
+    },
+    "face": {
+      "knurl": { // knurl
+        "profile": "RAA",
+        "angle": 0,
+        "pitch": 0.8
+      }
+    }
+  },
+  "right": {
+    "dimension": {
+      "value": 30
+    }
+  },
+  "meta": {}
+}
+```
+
+### Thread
+ToDo
+
+### Boring
+ToDo
+
+### Radial Boring
+ToDo
+
+### Milling
+ToDo
