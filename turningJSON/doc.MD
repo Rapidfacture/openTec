@@ -42,7 +42,9 @@ The following meta information is used for the drawing:
   "material": "C45",
   "surface": "Ra 6,3",
   "innerEdge": "+0,3 bis +0,5",
-  "outerEdge": "-0,1 bis -0,3"
+  "outerEdge": "-0,1 bis -0,3",
+  "innerContourOnlyBored": false,
+  "offCutAllowed": false
 }
 ```
 
